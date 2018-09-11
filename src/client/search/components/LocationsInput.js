@@ -11,9 +11,9 @@ import classNames from 'classnames';
           className={ classNames('loader', { 'visible': props.isFetching }) }
         />
         <input
-          type="text" className="input" name="search-location"
+          type="text" id="search-location" className="input" name="search-location"
           placeholder="city, airport, station, region and district"
-          role="textbox"
+           aria-label="Pickup location input"
           onChange={ props.onChange.bind(this) }
         />
       </div>

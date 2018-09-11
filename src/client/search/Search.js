@@ -30,7 +30,7 @@ class Search extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="search-location">
         <form className="form">
           <h2 className="heading"> Where are you going? </h2>
 

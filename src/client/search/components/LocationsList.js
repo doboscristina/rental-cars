@@ -6,8 +6,8 @@ export default class LocationsList extends React.Component {
     if(results.docs) {
       items = results.docs.map((result, key) => (
         <li key={key}>{result.name}
-          { result.iata ? `(${result.iata})` : '' } <br/>
-          { result.city ? `${result.city},` : '' } { result.country }
+          { result.iata ? ` (${result.iata})` : '' } <br/>
+          { result.city ? `${result.city}, ` : '' } { result.country }
         </li>
       ))
     } else if (results.numFound === 0) {
