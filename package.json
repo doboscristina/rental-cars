@@ -1,5 +1,6 @@
 {
   "name": "frontend-test",
+  "license": "UNLICENSED",
   "version": "1.0.0",
   "description": "Rentalcars.com Search Input",
   "main": "src/server/index.js",

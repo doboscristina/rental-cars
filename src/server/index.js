@@ -8,4 +8,4 @@ app.use(express.static('dist'));
 bodyParser(app);
 app.use(routes);
 
-app.listen(8080, () => console.log('Listening on port 8080..not'));
+app.listen(8080, () => console.log('Listening on port 8080'));
