@@ -1,0 +1,46 @@
+.location-fieldset {
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+.input-wrapper {
+  line-height: 30px;
+  padding: 0 0 5px;
+  position: relative;
+
+  .label {
+    color: #444;
+    text-shadow: none;
+    font-size: 0.875em;
+    float: none;
+    width: auto;
+  }
+
+  .input {
+    width: 90%;
+    margin: 0;
+    border-radius: 0;
+    background: #FEFEFE;
+    border: 1px solid #a9a9a9;
+    padding: 12px 8% 12px 2%;
+    line-height: 15px;
+    font-size: 13px;
+    font-weight: 400;
+    height: auto;
+    float: none;
+  }
+
+  .loader {
+    height: 24px;
+    width: auto;
+    right: 5px;
+    top: 39px;
+    position: absolute;
+    display: none;
+
+    &.visible {
+      display: block;
+    }
+  }
+}

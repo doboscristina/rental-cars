@@ -1,14 +1,15 @@
 import React from 'react';
 import LocationsInput from './components/LocationsInput';
 import LocationsList from './components/LocationsList';
-import { loadSearchResults } from './action';
+import { loadSearchResults, clearSearchResults, noSearchResults } from './action';
 import { connect } from 'react-redux';
 
 function mapStateToProps(state) {
     return {
       isFetching: state.results.isFetching,
-      error: state.results.error,
-      results: state.results.results
+      wasCalled: state.results.wasCalled,
+      results: state.results.results,
+      noSearchResults: state.results.noSearchResults,
     };
 }
 
@@ -19,7 +20,11 @@ function mapDispatchToProps(dispatch) {
 
 class Search extends React.Component {
   onChange = (event) => {
-    if(event.target.value.length > 1 ) {
+    if(!this.props.wasCalled && event.target.value.length === 1) {
+      this.props.dispatch(noSearchResults());
+    } else if(this.props.wasCalled && event.target.value.length === 1) {
+      this.props.dispatch(clearSearchResults());
+    } else if(event.target.value.length > 1 ) {
       this.props.dispatch(loadSearchResults(event.target.value));
     }
   }
@@ -27,11 +32,11 @@ class Search extends React.Component {
     return (
       <div>
         <form className="form">
-          <h2> Where are you going? </h2>
-          
+          <h2 className="heading"> Where are you going? </h2>
+
           <LocationsInput onChange={ this.onChange } isFetching={ this.props.isFetching }/>
         </form>
-          <LocationsList results={ this.props.results }/>
+          <LocationsList results={ this.props.results } noSearchResults={ this.props.noSearchResults }/>
       </div>
     )
   }
